@@ -149,7 +149,7 @@ class HitBTCConnector(WebSocketConnectorThread):
                 # getSymbols, getTrades, getTradingBalance, getOrders
                 for item in response['result']:
                     # Don't print zero balances
-                    if method is not 'getTradingBalance' or (float(item['available']) > 0 or float(item['reserved']) > 0):
+                    if method != 'getTradingBalance' or (float(item['available']) > 0 or float(item['reserved']) > 0):
                         try:
                             text += msg.format(**item)
                         except KeyError as e :
